@@ -39,7 +39,7 @@ The hosted server and this package expose the same API; run the package locally 
 ### Claude Code
 
 ```sh
-claude mcp add veille --env VEILLE_API_KEY=YOUR_API_KEY -- npx -y @veille/mcp
+claude mcp add veille --env VEILLE_API_KEY=YOUR_API_KEY -- npx -y @veilleio/mcp
 ```
 
 ### Claude Desktop, Cursor, Windsurf and other clients
@@ -51,7 +51,7 @@ Add the server to the client's MCP configuration (`claude_desktop_config.json`, 
   "mcpServers": {
     "veille": {
       "command": "npx",
-      "args": ["-y", "@veille/mcp"],
+      "args": ["-y", "@veilleio/mcp"],
       "env": {
         "VEILLE_API_KEY": "YOUR_API_KEY"
       }
@@ -68,7 +68,7 @@ Add the server to the client's MCP configuration (`claude_desktop_config.json`, 
     "veille": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@veille/mcp"],
+      "args": ["-y", "@veilleio/mcp"],
       "env": {
         "VEILLE_API_KEY": "${input:veille-api-key}"
       }
@@ -116,7 +116,7 @@ Every tool that calls the API consumes credits. JSON results are returned as tex
 ## Streamable HTTP
 
 ```sh
-npx @veille/mcp --http --port 3000
+npx @veilleio/mcp --http --port 3000
 ```
 
 The endpoint is `POST /mcp` (stateless, JSON responses). Each client sends its own key in the `x-api-key` header (or `Authorization: Bearer <key>`); the server never uses a key of its own. It binds to `127.0.0.1` by default and rejects browser origins unless you allow them — put it behind TLS before exposing it.
@@ -124,7 +124,7 @@ The endpoint is `POST /mcp` (stateless, JSON responses). Each client sends its o
 `createHttpHandler()` is exported for Fetch-compatible runtimes (Cloudflare Workers, Deno, Bun):
 
 ```ts
-import { createHttpHandler } from "@veille/mcp";
+import { createHttpHandler } from "@veilleio/mcp";
 
 export default { fetch: createHttpHandler({ allowedOrigins: [] }) };
 ```
@@ -146,7 +146,7 @@ npx @modelcontextprotocol/inspector node dist/stdio.js
 
 ## Built on the SDK
 
-The server uses the official [Node.js SDK](https://github.com/veilleio/veille-node) (`@veille/sdk`).
+The server uses the official [Node.js SDK](https://github.com/veilleio/veille-node) (`@veilleio/sdk`).
 
 ## License
 

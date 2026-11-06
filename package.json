@@ -1,5 +1,5 @@
 {
-  "name": "@veille/mcp",
+  "name": "@veilleio/mcp",
   "version": "0.1.0",
   "description": "Veille MCP server: Validate emails, domains, IPs, VAT numbers and IBANs in milliseconds to block fake sign-ups, bots and fraud.",
   "type": "module",
@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
-    "@veille/sdk": "^0.1.0",
+    "@veilleio/sdk": "^0.1.0",
     "zod": "^4.6.7"
   },
   "devDependencies": {

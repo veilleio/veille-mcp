@@ -4,7 +4,7 @@ import {
   VeilleError,
   VeilleSerializationError,
   type ApiResponse,
-} from "@veille/sdk";
+} from "@veilleio/sdk";
 
 import { redact } from "./redaction.js";
 
