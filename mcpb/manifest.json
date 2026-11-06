@@ -1,0 +1,100 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/schemas/mcpb-manifest-v0.4.schema.json",
+  "manifest_version": "0.4",
+  "name": "veille-mcp",
+  "display_name": "Veille",
+  "version": "0.1.0",
+  "description": "Veille fraud prevention API for Claude.",
+  "long_description": "Validate emails, domains, IPs, VAT numbers and IBANs in milliseconds to block fake sign-ups, bots and fraud.",
+  "author": {
+    "name": "Veille",
+    "email": "contact@veille.io",
+    "url": "https://www.veille.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/veilleio/veille-mcp"
+  },
+  "homepage": "https://www.veille.io",
+  "documentation": "https://github.com/veilleio/veille-mcp#readme",
+  "support": "mailto:contact@veille.io",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/dist/stdio.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/dist/stdio.js"],
+      "env": {
+        "VEILLE_API_KEY": "${user_config.VEILLE_API_KEY}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "intelligence_domain",
+      "description": "Check any domain instantly. Detects disposable email providers, public webmail, relay services, and education domains. Returns DNS health with MX provider detection, domain history, and optional SSL/…"
+    },
+    {
+      "name": "intelligence_email",
+      "description": "Validate any email address in a single call. Detects disposable and temporary inboxes, identifies role accounts, public webmail, relay services, and returns a 0-100 risk score. For deep deliverabilit…"
+    },
+    {
+      "name": "intelligence_emailq",
+      "description": "Deep email deliverability verification. Performs full Email Validation plus SMTP inbox check, catch-all detection, and returns a qualification verdict (valid, invalid, risky, disposable, unknown)."
+    },
+    {
+      "name": "intelligence_ip",
+      "description": "Assess the reputation of any IP address. Detects VPNs, proxies, Tor exit nodes, datacenter hosting, abusive traffic, and bots. Returns geolocation, network owner, and a 0-100 threat score."
+    },
+    {
+      "name": "intelligence_phone",
+      "description": "Validate any phone number in E.164 format. Detects disposable and virtual numbers, identifies carrier and line type (mobile/fixed/VoIP), returns country and timezone, and computes a 0-100 risk score."
+    },
+    {
+      "name": "stats",
+      "description": "Infrastructure health for an engine or endpoint over the last hour. Not scoped to your account or tenant. Enabled per account: HTTP 403 means contact support to activate it."
+    },
+    {
+      "name": "usage",
+      "description": "Retrieve real-time usage statistics and credit balance for your Veille account."
+    },
+    {
+      "name": "vat",
+      "description": "Validate a European VAT number against the VIES database. Returns company name, registered address, and validity status for any EU member state."
+    },
+    {
+      "name": "vat_iban",
+      "description": "Validate any IBAN and retrieve associated bank details. Returns the BIC/SWIFT code, bank name, country, BBAN structural breakdown, and SEPA zone membership."
+    },
+    {
+      "name": "vat_rates",
+      "description": "Get current ECB exchange rates for any supported base currency. Optionally filter to specific target currencies. Updated daily from the European Central Bank."
+    }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "mcp",
+    "veille",
+    "email-validation",
+    "fraud-prevention",
+    "vat-validation",
+    "ip-reputation"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=20"
+    }
+  },
+  "user_config": {
+    "VEILLE_API_KEY": {
+      "type": "string",
+      "title": "Veille API key",
+      "description": "Your API key from https://app.veille.io.",
+      "required": true,
+      "sensitive": true
+    }
+  }
+}

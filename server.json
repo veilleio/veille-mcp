@@ -1,0 +1,44 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.veille/mcp",
+  "title": "Veille",
+  "description": "Validate emails, domains, IPs, VAT numbers and IBANs in milliseconds to block fake sign-ups, bots a…",
+  "version": "0.1.0",
+  "websiteUrl": "https://www.veille.io",
+  "repository": {
+    "url": "https://github.com/veilleio/veille-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@veille/mcp",
+      "version": "0.1.0",
+      "environmentVariables": [
+        {
+          "name": "VEILLE_API_KEY",
+          "description": "Veille API key.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ],
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.veille.io/",
+      "headers": [
+        {
+          "name": "x-api-key",
+          "description": "Veille API key.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
