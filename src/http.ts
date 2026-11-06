@@ -1,5 +1,5 @@
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
-import { VeilleClient, type VeilleClientOptions } from "@veille/sdk";
+import { VeilleClient, type VeilleClientOptions } from "@veilleio/sdk";
 
 import { createVeilleMcpServer, type ToolClient } from "./server.js";
 

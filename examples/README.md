@@ -9,5 +9,5 @@ Inspect the tools without an AI client:
 
 ```sh
 export VEILLE_API_KEY="YOUR_API_KEY"
-npx @modelcontextprotocol/inspector npx -y @veille/mcp
+npx @modelcontextprotocol/inspector npx -y @veilleio/mcp
 ```

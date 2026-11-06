@@ -2,7 +2,7 @@
 import process from "node:process";
 
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { VeilleClient } from "@veille/sdk";
+import { VeilleClient } from "@veilleio/sdk";
 
 import { redact } from "./redaction.js";
 import { createVeilleMcpServer } from "./server.js";

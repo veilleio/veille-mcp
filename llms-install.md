@@ -27,7 +27,7 @@ Or run it locally over stdio:
   "mcpServers": {
     "veille": {
       "command": "npx",
-      "args": ["-y", "@veille/mcp"],
+      "args": ["-y", "@veilleio/mcp"],
       "env": {
         "VEILLE_API_KEY": "YOUR_API_KEY"
       }
